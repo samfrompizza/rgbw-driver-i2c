@@ -18,6 +18,7 @@
 - компилятор GCC;
 - CMake;
 - `make`;
+- библиотека `check` (для host unit-тестов);
 - подключаемый I2C API.
 
 ## Структура проекта
@@ -37,9 +38,13 @@
 Для сборки нужно запустить:
 
 ```text
-cmake -S . -B build
+cmake -S . -B build -DBUILD_HOST_TESTS=ON -DBUILD_CORTEX_M0=ON
 cmake --build build
 ctest --test-dir build --output-on-failure
+
+# только сборка driver-цели для Cortex-M0 (без тестов)
+cmake -S . -B build-m0 -DBUILD_HOST_TESTS=OFF -DBUILD_CORTEX_M0=ON
+cmake --build build-m0 --target rgbw_driver_cortex_m0
 ```
 
 ## Пример использования
