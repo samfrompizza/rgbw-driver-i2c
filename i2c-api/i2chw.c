@@ -9,7 +9,7 @@ static I2C_Error_t g_start_result = I2C_ERR_SUCCESS;
 static I2C_Error_t g_stop_result = I2C_ERR_SUCCESS;
 static I2C_Error_t g_write_result = I2C_ERR_SUCCESS;
 
-void I2C_MockReset(void) {
+void I2C_MockReset() {
   memset(&g_mock_state, 0, sizeof(g_mock_state));
   g_init_result = I2C_ERR_SUCCESS;
   g_start_result = I2C_ERR_SUCCESS;
@@ -21,7 +21,7 @@ void I2C_MockSetInitResult(const I2C_Error_t err) { g_init_result = err; }
 void I2C_MockSetStartResult(const I2C_Error_t err) { g_start_result = err; }
 void I2C_MockSetStopResult(const I2C_Error_t err) { g_stop_result = err; }
 void I2C_MockSetWriteResult(const I2C_Error_t err) { g_write_result = err; }
-const I2C_MockState_t *I2C_MockGetState(void) { return &g_mock_state; }
+const I2C_MockState_t *I2C_MockGetState() { return &g_mock_state; }
 
 I2C_Error_t I2C_Init(const I2C_Ch_t i2c_ch, const I2C_Freq_t i2c_freq) {
   printf("I2C bus initialization.\n");

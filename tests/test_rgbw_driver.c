@@ -3,12 +3,12 @@
 #include <assert.h>
 #include <stdio.h>
 
-static RGBW_Config_t make_cfg(void) {
+static RGBW_Config_t make_cfg() {
   RGBW_Config_t cfg = {I2C_CH1, I2C_FREQ_400_KHZ, RGBW_I2C_BASE_ADDR};
   return cfg;
 }
 
-static void test_init_works_with_user_config(void) {
+static void test_init_works_with_user_config() {
   RGBW_Config_t cfg = make_cfg();
   I2C_MockReset();
 
@@ -21,7 +21,7 @@ static void test_init_works_with_user_config(void) {
   assert(st->stop_calls == 7U);
 }
 
-static void test_brightness_updates_correct_pwm_register(void) {
+static void test_brightness_updates_correct_pwm_register() {
   RGBW_Config_t cfg = make_cfg();
   I2C_MockReset();
 
@@ -32,7 +32,7 @@ static void test_brightness_updates_correct_pwm_register(void) {
   assert(st->last_write_buf[1] == 0x00U);
 }
 
-static void test_error_is_propagated_from_i2c_write(void) {
+static void test_error_is_propagated_from_i2c_write() {
   RGBW_Config_t cfg = make_cfg();
   I2C_MockReset();
   I2C_MockSetWriteResult(I2C_ERR_NACK);
@@ -45,7 +45,7 @@ static void test_error_is_propagated_from_i2c_write(void) {
   assert(st->stop_calls == 1U);
 }
 
-static void test_bad_channel_is_rejected(void) {
+static void test_bad_channel_is_rejected() {
   RGBW_Config_t cfg = make_cfg();
   I2C_MockReset();
 
