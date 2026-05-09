@@ -3,7 +3,7 @@
 
 #include "../i2c-api/i2chw.h"
 
-#define RGBW_I2C_BASE_ADDR (0x3CU)\
+#define RGBW_I2C_BASE_ADDR (0x3CU)
 #define RGBW_I2C_AD_BITS_MASK (0x03U)
 
 typedef enum {
