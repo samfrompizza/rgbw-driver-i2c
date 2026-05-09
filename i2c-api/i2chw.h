@@ -103,6 +103,7 @@ I2C_Error_t I2C_Read(const I2C_Ch_t i2c_ch, uint8_t *data_bytes, const uint16_t 
  */
 I2C_Error_t I2C_Write(const I2C_Ch_t i2c_ch, const uint8_t *data_bytes, const uint16_t length);
 
+/** @brief Structure for mock-testing. */
 typedef struct {
   size_t init_calls;
   size_t start_calls;
@@ -117,11 +118,15 @@ typedef struct {
   uint16_t last_write_len;
 } I2C_MockState_t;
 
-void I2C_MockReset(void);
+/**
+ * @brief Resets mock-testing flags.
+ */
+void I2C_MockReset();
+
 void I2C_MockSetInitResult(I2C_Error_t err);
 void I2C_MockSetStartResult(I2C_Error_t err);
 void I2C_MockSetStopResult(I2C_Error_t err);
 void I2C_MockSetWriteResult(I2C_Error_t err);
-const I2C_MockState_t *I2C_MockGetState(void);
+const I2C_MockState_t *I2C_MockGetState();
 
 #endif
