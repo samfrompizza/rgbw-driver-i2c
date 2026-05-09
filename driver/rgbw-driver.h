@@ -68,7 +68,7 @@ I2C_Error_t RGBW_SetChannelBrightness(const RGBW_Config_t *dev, RGBW_Channel_t c
  * @brief Turns ON/OFF selected LED.
  * @param dev Driver's configuration.
  * @param channel LED's channel.
- * @param state ON/OFF statue of LED.
+ * @param state ON/OFF status of LED.
  * @return I2C_Error_t Status of the operation.
  */
 I2C_Error_t RGBW_SetChannelState(const RGBW_Config_t *dev, RGBW_Channel_t channel, RGBW_ChannelState_t state);
@@ -76,7 +76,7 @@ I2C_Error_t RGBW_SetChannelState(const RGBW_Config_t *dev, RGBW_Channel_t channe
 /**
  * @brief Turns ON/OFF all LEDs.
  * @param dev Driver's configuration.
- * @param state ON/OFF statue of LED.
+ * @param state ON/OFF status of LED.
  * @return I2C_Error_t Status of the operation.
  */
 I2C_Error_t RGBW_SetAllChannelsState(const RGBW_Config_t *dev, RGBW_ChannelState_t state);
