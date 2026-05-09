@@ -41,3 +41,31 @@ cmake -S . -B build
 cmake --build build
 ctest --test-dir build --output-on-failure
 ```
+
+## Пример использования
+
+```code
+#include "rgbw-driver.h"
+
+int main(void)
+{
+    I2C_Error_t status;
+
+    status = RGBW_Init(I2C_CH1);
+    if (status != I2C_ERR_SUCCESS) {
+        return -1;
+    }
+
+    status = RGBW_SetRGB(255, 0, 0);   // красный
+    if (status != I2C_ERR_SUCCESS) {
+        return -1;
+    }
+
+    status = RGBW_SetChannelEnable(RGBW_CH_RED, 1);
+    if (status != I2C_ERR_SUCCESS) {
+        return -1;
+    }
+
+    return 0;
+}
+```
