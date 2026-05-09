@@ -42,13 +42,13 @@ static I2C_Error_t rgbw_validate_config(const RGBW_Config_t *dev) {
   if (dev->i2c_ch >= I2C_CH_MAX_NUM) {
     return I2C_ERR_BAD_PARAMS;
   }
-  if (dev->i2c_freq >= I2C_FREQ_MAX_NUM) {
+  if (dev->i2c_freq != I2C_FREQ_400_KHZ) {
     return I2C_ERR_BAD_PARAMS;
   }
   if ((dev->i2c_addr < RGBW_I2C_ADDR_MIN) || (dev->i2c_addr > RGBW_I2C_ADDR_MAX)) {
     return I2C_ERR_BAD_PARAMS;
   }
-  
+
   return I2C_ERR_SUCCESS;
 }
 
